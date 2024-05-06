@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv=”Content-Type” content=”text/html; charset=utf-8″ />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificar - Decodificar</title>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/encodeDecode.css">
+
+    <script src="js/utils.js"></script>
+    <script src="js/myApp.js"></script>
+    <script src="js/mapa.js"></script>
+    
+
+    <script>
+
+    window.onload = function(){
+
+        myApp.iniciar();
+
+        const mChars = new MapaChars();
+        let tablaHTML = mChars.pintarTablaHTML(); // pintamos el mapa de caracteres en una tabla HTML
+        qSel('.tablaCodigos tbody').innerHTML = tablaHTML;
+
+        myApp.limpiarDatos();
+
+        // Ejemplo con btoa y atob base64
+        var encodedData = window.btoa("Hola a todos"); // codifica una cadena
+        var decodedData = window.atob(encodedData); // decodifica una cadena
+        cLog("Texto codificado:", encodedData); // SG9sYSBhIHRvZG9z
+        cLog("Texto decodificado:", decodedData); // Hola a todos
+        cLog("*".repeat(30));
+    }
+
+    </script>
+
+</head>
+
+<body>
+    <div class="divBox">
+        <h1>Codificar - Decodificar</h1>
+        
+        <div class="boxInputs">
+            <label>Codifica una frase</label>
+            <input type="text" id="txtTextoCode">
+            <button id="btn_codificar" type="button" class="btn_0">Codificar</button>
+            <div class="divResultado">
+                <label>Resultado:</label>
+                <label id="lbl_textoCodificado"></label>
+            </div>
+        </div>
+    
+        <div class="separador"></div>
+
+        <div class="boxInputs">
+            <label>Decodifica la frase</label>
+            <button id="btn_decodificar" type="button" class="btn_0">Decodificar</button>
+            <div class="divResultado">
+                <label>Resultado:</label>
+                <label id="lbl_textoDecodificado"></label>
+            </div>
+        </div>
+
+        <div class="separador"></div>
+
+        <div class="boxInputs">
+            <div class="divResultado" style="width:100%; text-align:right;">
+                <button id="btn_limpiar" type="button" class="btn_0">Limpiar Datos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tabla  de Codificación -->
+    <div class="divBox">
+        <h1>Tabla de Codificación</h1>
+
+        <table class="tablaCodigos">
+            <thead>
+                <tr>
+                    <th>Carácter</th>
+                    <th>Codificación</th>
+                </tr>
+            </thead>
+
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+

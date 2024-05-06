@@ -1,0 +1,40 @@
+
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+      font-size:0.75em; 
+      font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+      
+      line-height: 100%;
+  }
+  
+  div, span
+  {
+      box-sizing: border-box;
+      -moz-box-sizing:border-box;
+      -webkit-box-sizing: border-box;
+  }
+  
+  ul, ol {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+  }
+  li {
+     margin-left: 2em;
+  }
+  
+  a 
+  {
+      padding: 0;
+      margin: 0;
+      font-size: 0.750em;
+      font-weight: normal;
+  }
+  
+  a:hover {
+      text-decoration: none;
+  }

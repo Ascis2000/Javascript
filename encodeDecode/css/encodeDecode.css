@@ -1,0 +1,134 @@
+
+body {
+    width:100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+    background-color: #dde8f0;
+}
+
+h1 {
+    color: #2c3e50;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #2980b9;
+    font-size:1.3em;
+}
+
+input[type="text"] {
+    width: calc(100% - 90px);
+    padding: 8px;
+    margin-bottom: 10px;
+
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+}
+
+/* *********************************** */
+
+.divBox {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* *********************************** */
+
+.divResultado {
+    margin-top: 10px;
+}
+.divResultado > label:nth-child(2) {
+    display: block;
+    padding: 8px;
+    background-color: #e1ecf4;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    line-height: 1.3em;
+}
+
+/* *********************************** */
+
+.btn_0 {
+    padding: 8px 15px;
+
+    color: white;
+    background-color: #3498db;
+    border: 1px solid #bdc3c7;
+    border-radius: 5px;
+    line-height: 1.3em;
+
+    cursor: pointer;
+}
+
+:hover.btn_0{
+    background-color: #2980b9;
+}
+
+/* *********************************** */
+
+.boxInputs {
+    margin-bottom: 20px;
+}
+
+.separador {
+    width: 100%;
+    height: 1px; /* Grosor de la línea */
+    margin: 20px 0; /* Margen superior e inferior */
+
+    background-color: #add8e6; /* Color de la línea */
+    background-image: repeating-linear-gradient(to right, transparent, transparent 5px, #bfc0d4 5px, #e9eaf2 10px); /* Guiones */
+}
+
+/* *********************************** */
+
+.tablaCodigos {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    table-layout: fixed;
+}
+
+.tablaCodigos th,
+.tablaCodigos td {
+    border: 1px solid #bdc3c7;
+    padding: 8px;
+
+    color:#264969;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ctablaCodigos tbody td:first-child {
+    color: #53548f;
+    font-weight: bold;
+}
+
+.tablaCodigos th {
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    text-align: left;
+}
+
+.tablaCodigos tbody {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.tablaCodigos tbody tr:nth-child(even) {
+    background-color: #e1ecf4;
+}
+
+.tablaCodigos tbody tr:hover {
+    background-color: #d4e6f1;
+}
