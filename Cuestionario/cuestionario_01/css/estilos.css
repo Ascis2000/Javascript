@@ -1,0 +1,144 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #597d86;
+    color: #4c6f86;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+	color: #39679c;
+    text-align: left;
+    margin: 10px 0 10px 0;
+}
+
+/* **************************************** */
+
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en filas o columnas */
+    gap: 6px; /* Espacio de 6px entre elementos hijos */
+}
+
+.column {
+    flex: 1;
+    width: 50%;
+    padding: 10px;
+}
+
+.left-column {
+    display: flex;
+
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+.right-column {
+    display: flex;
+
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media (max-width: 600px) {
+    .column {
+        width: 100%; /* Cambia el ancho a 100% para apilarlas verticalmente */
+    }
+}
+
+/* **************************************** */
+
+.boxMAIN {
+	width:90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.boxCUESTIONARIO {
+
+    margin: 10px 0 10px 0;
+	padding: 5px 10px 10px 10px;
+
+	border-radius: 5px;
+	border: 1px solid #E8F3E2;
+}
+
+.boxCUESTIONARIO h2 {
+    color: #4c93af;
+	margin: 5px 0 5px 0;
+    padding: 10px 0 10px 0;
+	
+	border-radius: 0px;
+	border-bottom: 2px solid #4c93af;
+    
+}
+
+.boxHeightScroll {
+	height: 160px;
+	overflow-y: auto;
+	padding: 5px 10px 10px 10px;
+	border-radius: 5px;
+	border: 1px solid #E8F3E2;
+}
+
+.pregunta {
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+}
+
+.pregunta p {
+    margin: 0 0 10px;
+}
+
+button {
+    background-color: #4c82af;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1d5018;
+}
+
+div.respuesta {
+    display: none;
+    margin-top: 10px;
+    color: #3e8047;
+    padding: 5px 5px 5px 5px;
+
+    border-radius: 5px;
+    border: 1px solid #dae4d9;
+    background-color: #FCFCFC;
+}
+
+mark {
+    color: black; /* Cambia el color del texto si es necesario */
+    border-radius: 3px;
+    border: 1px solid rgb(199, 190, 138);
+    background-color: rgb(233, 230, 57); /* Cambia el color de fondo */
+}
+
+label[for="slcTemas"] {
+    font-weight: normal;
+}
+
+label[for="slcTemas"]::after {
+    content: "\A"; /* Línea nueva */
+    white-space: pre; /* Respeta los espacios en blanco */
+}

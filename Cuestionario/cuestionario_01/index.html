@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <link rel="stylesheet" href="css/estilos.css">
+	
+	<script src="js/main.js"></script>
+	<script src="js/cuestionario.js"></script>
+	<script src="js/wc-botonera.js" defer></script>
+	<script src="js/wc-selector-temas.js" defer></script>
+
+	<script>
+    
+	// ejecutamos la funcion inicio cuando ya se ha cargado toda la página
+	document.addEventListener('DOMContentLoaded', function() {
+		inicio();
+	});
+			
+	</script>
+</head>
+
+<body>
+
+	<div class="boxMAIN">
+        <h1>Cuestionario</h1>
+
+		<div class="container">
+			<div class="column left-column">
+				<!-- Web Component wc-selector-temas //-->
+				<wc-selector-temas></wc-selector-temas>
+			</div>
+			<div class="column right-column">
+				<label for="inp_textoBusqueda">Buscar:</label>
+				<input type="text" id="inp_textoBusqueda" onInput="filtrarPreguntas(this, event)" placeholder="Texto de búsqueda">
+			</div>
+		</div>
+
+		<div class="boxCUESTIONARIO">
+			<div id="boxPreguntas"></div>
+		</div>
+    </div>
+	
+	<div class="boxMAIN">
+		<!-- Web Component wc-botonera //-->
+		<wc-botonera 
+			txt-mostrar="Mostrar las Respuestas"
+			txt-ocultar="Ocultar las Respuestas"
+		></wc-botonera>
+	</div>
+	
+</body>
+</html>
+
