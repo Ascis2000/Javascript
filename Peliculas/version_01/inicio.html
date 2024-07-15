@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Películas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="js/peliculas.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+    
+    let tabla;
+    let tbody;
+    let ths;
+    
+    // ejecutamos la funcion inicio cuando ya se ha cargado toda la página
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        tabla = document.getElementById('tblPeliculas');
+        tbody = tabla.querySelector('tbody');
+        ths = tabla.querySelectorAll('th');
+
+        inicio(1);
+    });
+                    
+    </script>
+    
+</head>
+
+<body>
+
+<table id="tblPeliculas">
+<caption>Lista de Películas</caption>
+<thead>
+    <tr>
+        <th>
+            <span>#</span>
+        </th>
+        <th data-th="titulo">
+            <span>Película</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+        <th data-th="director">
+            <span>Director</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+        <th data-th="anio">
+            <span>Año</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+    </tr>
+</thead>
+
+<tbody>
+    <!-- Las filas de datos se agregarán mediante JavaScript -->
+</tbody>
+</table>
+
+</body>
+</html>

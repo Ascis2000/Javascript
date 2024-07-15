@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Películas</title>
+    <style>
+
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            margin-bottom: 20px;
+            
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #bbbdc6;
+        }
+        th {
+            background-color: #c3cce6;
+            cursor: pointer;
+        }
+        th span.icon.on{
+            font-size:10px;
+            color: rgb(62, 153, 44);
+            cursor: pointer;
+        }
+        th span.icon.off{
+            font-size:10px;
+            color: rgb(172, 179, 173);
+            cursor: pointer;
+        }
+        /* Estilo para las celdas en filas pares */
+        tr:nth-child(even) td {
+            background-color: #f2f2f2;
+        }
+
+        /* Estilo para las celdas en filas impares */
+        tr:nth-child(odd) td {
+            background-color: #ffffff;
+        }
+
+        caption {
+            padding: 8px;
+            text-align: left;
+
+            border-radius: 5px;
+            border: 1px solid #bbbdc6;
+
+            caption-side: top;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<table id="tblPeliculas">
+<caption>Lista de Películas</caption>
+<thead>
+    <tr>
+        <th>
+            <span>#</span>
+        </th>
+        <th data-th="titulo">
+            <span>Película</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+        <th data-th="director">
+            <span>Director</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+        <th data-th="anio">
+            <span>Año</span>
+            <span class="icon on">&#9650;</span>
+        </th>
+    </tr>
+</thead>
+
+<tbody>
+    <!-- Las filas de datos se agregarán mediante JavaScript -->
+</tbody>
+</table>
+
+<script>
+
+let peliculas = [
+    { titulo: 'El Padrino', data: { director: 'Francis Ford Coppola', año: 1972 } },
+    { titulo: 'La Lista de Schindler', data: { director: 'Steven Spielberg', año: 1993 } },
+    { titulo: 'Pulp Fiction', data: { director: 'Quentin Tarantino', año: 1994 } },
+    { titulo: 'El Caballero Oscuro', data: { director: 'Christopher Nolan', año: 2008 } },
+    { titulo: 'Forrest Gump', data: { director: 'Robert Zemeckis', año: 1994 } }
+];
+
+let directores = [
+    { nombre: 'Steven Spielberg', films: [{ titulo: 'Tiburón' }, { titulo: 'La Lista de Schindler' }] },
+    { nombre: 'Quentin Tarantino', films: [{ director: 'Pulp Fiction' }, { titulo: 'Malditos Bastardos' }] }
+];
+
+// Estado inicial para la dirección de ordenación
+let sortOrderTHs = {
+    index: 'desc',
+    titulo: 'desc',
+    director: 'desc',
+    anio: 'desc'
+};
+
+const tabla = document.getElementById('tblPeliculas');
+const tbody = tabla.querySelector('tbody');
+const ths = tabla.querySelectorAll('th');
+
+// ejecutamos la funcion inicio cuando ya se ha cargado toda la página
+document.addEventListener('DOMContentLoaded', function() {
+    inicio(1);
+});
+
+function inicio(numTH){
+
+    // indicamos la columna por la que queremos 
+    // que se muestra la tabla ordenada al inicio
+    let thInicio = (numTH) ? ths[numTH] : ths[1];
+
+    ordena_tabla(thInicio);
+    renderiza_iconos_tHead(thInicio, 'asc');
+    renderiza_tBody(); // renderizamos el tbody
+    set_eventos_tHead_tBody_tabla(); // solo lo ejecutamos una vez
+}
+
+function renderiza_iconos_tHead(obj, modo) {
+
+    ths.forEach(th => {
+        const dataTH = th.getAttribute('data-th');
+        
+        if (dataTH) {
+            let icon = th.querySelector('.icon');
+            
+            // Resetea el estilo inicial
+            icon.innerHTML = '';
+            icon.classList.remove("on"); // eliminamos a todos la clase 'on'
+            icon.classList.add("off"); // añadimos a todos la clase 'on'
+            icon.style.color = "#EEEEEE";
+            
+            // Si es la columna seleccionada y está ordenando ascendentemente
+            if (sortOrderTHs[dataTH] === 'asc') {
+                icon.innerHTML = '&#9650;'; // Flecha hacia arriba
+            } 
+            // Si es la columna seleccionada y está ordenando descendentemente
+            else if (sortOrderTHs[dataTH] === 'desc') {
+                icon.innerHTML = '&#9660;'; // Flecha hacia abajo
+            }
+        }
+    });
+
+    // actualizamos el icono actual
+    obj.querySelector('.icon').classList.add("on");
+    obj.querySelector('.icon').classList.remove("off");
+    obj.querySelector('.icon').style.color = '#006600';
+}
+
+// función para renderizar la tabla
+function renderiza_tBody() {
+
+    let html = "";
+
+    peliculas.forEach((p, index) => {
+        html += `
+            <tr>
+                <td>${index + 1}</td>
+                <td>${p.titulo}</td>
+                <td>${p.data.director}</td>
+                <td>${p.data.año}</td>
+            </tr>
+        `;
+    });
+    tbody.innerHTML = html;
+}
+
+// añadimos la funcionalidad de evento enel thead y el tbody
+function set_eventos_tHead_tBody_tabla(){
+
+    // añadimos el evento click a cada th del thead
+    ths.forEach(th => {
+
+        // obtenemos del th actual su atributo 'data-th'
+        let dataTH = th.getAttribute('data-th');
+
+        // si el th actual tiene el atributo 'data-th'
+        if (dataTH) {
+            th.addEventListener('click', function() {
+                ordena_tabla(this);
+                renderiza_iconos_tHead(this, 'asc');
+                renderiza_tBody(); // volvemos a pintar el tbody
+            });
+        };
+    });
+
+    // Añadir un único evento click al tbody
+    tbody.addEventListener('click', function(event) {
+        if (event.target.tagName.toLowerCase() === 'td') {
+            alert(event.target.textContent);
+        }
+    });
+}
+
+// función para ordenar la tabla
+function ordena_tabla(obj) {
+
+    let comparacion = 0;
+    let dataTH = obj.getAttribute('data-th');
+
+    sortOrderTHs[dataTH] = (sortOrderTHs[dataTH] === 'asc') ? 'desc' : 'asc';
+
+    if (dataTH) {
+        peliculas.sort((a, b) => {
+
+            switch(dataTH) {
+                case 'titulo':
+                    comparacion = a.titulo.localeCompare(b.titulo);
+                    break;
+                case 'director':
+                    comparacion = a.data.director.localeCompare(b.data.director);
+                    break;
+                case 'anio':
+                    comparacion = a.data.año - b.data.año;
+                    break;
+                default:
+                    comparacion = 0;
+                    break;
+            }
+            // devolvemos la dirección ascendente o descendente
+            return sortOrderTHs[dataTH] === 'asc' ? comparacion : -comparacion;
+        });
+    }
+}
+
+</script>
+
+</body>
+</html>
