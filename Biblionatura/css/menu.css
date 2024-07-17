@@ -1,0 +1,102 @@
+
+header
+{
+	width:100%;
+	position:relative;
+}
+
+header div.divMenu {
+	display:none;
+	padding: 4px 6px 3px 6px;
+	
+	border: 1px solid #666666;
+	border-radius: 8px 8px 0px 0px;
+	
+	background-color: #99ADB9;
+	background-image: linear-gradient( to bottom, #A4B6C2, #8099A8 );
+	
+	cursor: pointer;
+}
+
+header div.divMenu span.txt_menu {
+	color: #3E4F59;
+	font-size:15px;
+	font-weight: bold;
+}
+	
+header div.divMenu span.icon_menu_open {
+	float:right;
+	width:25px;
+	
+	color:#1B222B;
+	font-size:15px;
+	font-weight: bold;
+	
+	background-size: 25px 20px;
+	background-repeat: no-repeat;
+	background-position: center 1px;  
+	background-image: url("../img/i_menu_open.png");
+}
+
+header div.divMenu span.icon_menu_close {
+	float:right;
+	width:25px;
+	
+	color:#1B222B;
+	font-size:15px;
+	font-weight: bold;
+	
+	background-size: 25px 20px;
+	background-repeat: no-repeat;
+	background-position: center 1px; 
+	background-image: url("../img/i_menu_close.png");
+}
+
+header nav {
+	width:100%;
+	max-width:1000px;
+	
+	z-index: 100;
+}
+
+header nav div {
+	width:100%;
+	overflow:hidden;
+}
+
+@media screen and (max-width:500px) {
+	header div.divMenu{
+		width:100%;
+		display:block;
+	}
+
+	header nav {
+		left:-1000%;
+		position: absolute;
+	}
+
+	header nav div.tab {
+		width:100%;
+		float:left;
+		box-shadow: 0px 1px 3px #999999;
+	}
+		
+	header nav div.tab button.tabs {
+		width:100%;
+		display:block;
+		
+		text-align: left;
+		border-top: 0px;
+		border-radius: 1px 1px 1px 1px;
+	}
+	
+	.tab button.active {
+		border-bottom: 1px solid #666666;
+	}
+	
+	div.CP_contentTabs {
+		border-radius: 0px 0px 5px 5px;
+	}
+} 
+
+/* http://falconmasters.com/demos/menu_responsive/# */

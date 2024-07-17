@@ -1,0 +1,228 @@
+﻿
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblionatura</title>
+	
+	<link rel="stylesheet" type="text/css" media="all" href="css/food.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/tabs.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/menu.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/ttip.css" />
+	
+	<script type="text/javascript" src="js/food.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/tabs.js"></script>
+	<script type="text/javascript" src="js/ttip.js"></script>
+	<script type="text/javascript" src="js/jquery/jquery-3.4.1.min.js"></script>
+	
+</head>
+
+<body>
+
+<div class="divMain">
+	<header>
+		<div class="divMenu">
+			<span class="txt_menu">Menu</span>
+			<span class="icon_menu_open">&nbsp;</span>
+		</div>
+ 
+		<nav>
+			<div class="tab">
+				<button class="tabs">Alimento</button>
+				<button class="tabs">Grupo</button>
+				<button class="tabs">Sistemas</button>
+				<button class="tabs">Prop. Curativas</button>
+			</div>
+		</nav>
+	</header>
+
+	<div class="CP_contentTabs">
+		<div class="contentTabs" id="dAlimento">
+			<div class="contentBuscador">
+				<div class="divBuscador">
+					<label>Alimento</label>
+					<label><input type="text" class="inp_food" placeholder="Alimento..."></label>
+					
+					<label>Encontrados: </label>
+					<label class="dataMatched">0</label>
+				</div>
+			</div>
+			
+			<div class="contentTabla">
+				<div class="divTblContent">
+					<table class="tbl_datos" width="100%">
+					<thead class="">
+					<tr>
+						<th>&nbsp;</th>
+						<th>Alimento</th>
+						<th>Grupo</th>
+						<th>Sistemas</th>
+						<th>P.Curativas</th>
+						<th>Fibras</th>
+						<th>Grasas</th>
+						<th>Minerales</th>
+						<th>Proteínas</th>
+						<th>Vitaminas</th>
+						<th class="thDesc">Descripción</th>
+					</tr>
+					</thead>
+					<tbody><tr>
+						<td class="tdBody" colspan="11" align="center">
+							<div class="div_info">
+								<div>&nbsp;</div>
+								<div>Inicia una búsqueda</div>
+							</div>
+						</td>
+						</tr>
+					</tr></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="contentTabs" id="dGrupo">
+			<div class="contentBuscador">
+				<div class="divBuscador">
+					<label>Filtra por Grupo de alimento</label>
+					<label><input type="text" class="inp_gFood" placeholder="Grupo de alimento..."></label>
+					
+					<label>y/o</label>
+					<label>
+						<select name="select" onchange="popo();">
+							<option value="" selected></option> 
+							<option value="grupo">Grupo</option> 
+							<option value="sistemas">Sistemas</option>
+							<option value="pcurativas">P. Curativas</option>
+						</select>
+					</label>
+					<label><input type="text" class="inp_foodOpcional" placeholder="introduce un valor..."></label>
+					
+					<label>Encontrados: </label>
+					<label class="dataMatched">0</label>
+				</div>
+			</div>
+			
+			<div class="contentTabla">
+				<div class="divTblContent">
+					<table class="tbl_datos" width="100%">
+					<thead class="">
+					<tr>
+						<th>Num.</th>
+						<th>Alimento</th>
+						<th>Grupo</th>
+						<th>Sistemas</th>
+						<th>P.Curativas</th>
+						<th>Fibras</th>
+						<th>Grasas</th>
+						<th>Minerales</th>
+						<th>Proteínas</th>
+						<th>Vitaminas</th>
+						<th class="thDesc">Descripción</th>
+					</tr>
+					</thead>
+					<tbody><tr>
+						<td class="tdBody" colspan="11" align="center">
+							<div class="div_info">
+								<div>&nbsp;</div>
+								<div>Inicia una búsqueda</div>
+							</div>
+						</td>
+						</tr>
+					</tr></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="contentTabs" id="dSistemas">
+			<div class="contentBuscador">
+				<div class="divBuscador">
+					<label>Filtra por Sistemas</label>
+					<label><input type="text" class="inp_sistemas" placeholder="Sistemas..."></label>
+					
+					<label>Encontrados: </label>
+					<label class="dataMatched">0</label>
+				</div>
+			</div>
+			
+			<div class="contentTabla">
+				<div class="divTblContent">
+					<table class="tbl_datos" width="100%">
+					<thead class="">
+					<tr>
+						<th>Num.</th>
+						<th>Alimento</th>
+						<th>Grupo</th>
+						<th>Sistemas</th>
+						<th>P.Curativas</th>
+						<th>Fibras</th>
+						<th>Grasas</th>
+						<th>Minerales</th>
+						<th>Proteínas</th>
+						<th>Vitaminas</th>
+						<th class="thDesc">Descripción</th>
+					</tr>
+					</thead>
+					<tbody><tr>
+						<td class="tdBody" colspan="11" align="center">
+							<div class="div_info">
+								<div>&nbsp;</div>
+								<div>Inicia una búsqueda</div>
+							</div>
+						</td>
+						</tr>
+					</tr></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div class="contentTabs" id="dCuracion">
+			<div class="contentBuscador">
+				<div class="divBuscador">
+					<label>Filtra por propiedades curativas</label>
+					<label><input type="text" class="inp_pcurativas" placeholder="Propiedades curativas..."></label>
+					
+					<label>Encontrados: </label>
+					<label class="dataMatched">0</label>
+				</div>
+			</div>
+			
+			<div class="contentTabla">
+				<div class="divTblContent">
+					<table class="tbl_datos" width="100%">
+					<thead class="">
+					<tr>
+						<th>Num.</th>
+						<th>Alimento</th>
+						<th>Grupo</th>
+						<th>Sistemas</th>
+						<th>P. Curativas</th>
+						<th>Fibras</th>
+						<th>Grasas</th>
+						<th>Minerales</th>
+						<th>Proteínas</th>
+						<th>Vitaminas</th>
+						<th class="thDesc">Descripción</th>
+					</tr>
+					</thead>
+					<tbody><tr>
+						<td class="tdBody" colspan="11" align="center">
+							<div class="div_info">
+								<div>&nbsp;</div>
+								<div>Inicia una búsqueda</div>
+							</div>
+						</td>
+						</tr>
+					</tr></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

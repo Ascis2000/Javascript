@@ -1,0 +1,84 @@
+
+/* Style the tab */
+.tab
+{
+	width:100%;
+	overflow: hidden;
+	
+	z-index:100;
+	position:relative; 
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+	
+	float: left;
+	outline: none;
+	cursor: pointer;
+	padding: 6px 8px;
+	margin-right: 1px;
+	display: inline-block;
+	
+	color: #556B79;
+	font-size: 15px;
+	font-weight: bold;
+	
+	transition: 0.3s;
+	
+	border: 1px solid #666666;
+	border-radius: 8px 8px 0px 0px;
+	
+	background-color: #BBBBBB;
+	background-image: linear-gradient( to bottom, #DBDBDF, #A4B6C2 );
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+	background-color: #DDDDDD;
+	background-image: linear-gradient( to bottom, #F2F3F4, #DBDBDF );
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+	
+	cursor: default;
+	
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #FFFFFF;
+	background-image: linear-gradient( to bottom, #FFFFFF, #FFFFFF );
+}
+
+.CP_contentTabs {
+	padding: 1px;
+	
+	float:left;
+	width:100%;
+	
+	position: relative;
+	border:1px solid #666666;
+	border-radius: 0px 5px 5px 5px;
+	
+	z-index:10;
+	margin-top:-1px;
+	
+	background-color: #FFFFFF;
+}
+
+/* Style the tab content */
+.contentTabs {
+	float:left;
+	width:100%;	
+	display: none;
+	padding-top:1px;
+}
+
+/* Fade in tabs */
+@-webkit-keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
