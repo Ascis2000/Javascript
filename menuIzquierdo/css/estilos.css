@@ -1,0 +1,82 @@
+
+*
+{
+    box-sizing: border-box; 
+    -moz-box-sizing:border-box; 
+}
+
+pre {
+    padding: 8px;
+    margin: 5px 0px 15px 0px;
+
+    text-align: left;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+
+    color: #384046;
+    border-radius: 3px;
+    border: 1px solid #666666;
+    background-color: #e8eef0;
+    box-shadow: 0px 2px 5px -1px rgb(91, 99, 109), 0px 5px 10px -10px rgba(0,0,0,0.75) inset;
+
+    height: 300px;
+    overflow: auto;
+}
+
+.mensaje{
+    
+    margin-top: 10px;
+
+    border-radius: 3px;
+    box-shadow: 0px 2px 3px -3px;
+
+    .aviso {
+        width:100%;
+        display: block;
+        padding:5px;
+        color: rgb(121, 113, 14);
+        border-radius: 3px;
+        border: 1px solid rgb(128, 112, 70);
+        background-color: rgb(228, 226, 205);
+    }
+
+    .error {
+        width:100%;
+        display: block;
+        padding:5px;
+        color: red;
+        border-radius: 3px;
+        border: 1px solid rgb(151, 107, 107);
+        background-color: rgb(224, 186, 135);
+    }
+
+    .info {
+        width:100%;
+        display: block;
+        padding:5px;
+        color: rgb(0, 81, 255);
+        border-radius: 3px;
+        border: 1px solid rgb(107, 128, 151);
+        background-color: rgb(205, 221, 228);
+    }
+}
+
+.h10pcent { height: 10%; } .h20pcent { height: 20%; } .h30pcent { height: 30%; }
+.h40pcent { height: 40%; } .h50pcent { height: 50%; } .h60pcent { height: 60%; }
+.h70pcent { height: 70%; } .h80pcent { height: 80%; } .h90pcent { height: 90%; } .h100pcent { height: 100%; }
+
+.h10 { height: 10px; } .h20 { height: 20px; } .h30 { height: 30px; } .h40 { height: 40px; } 
+.h50 { height: 50px; } .h60 { height: 60px; } .h70 { height: 70px; } .h80 { height: 80px; } 
+.h90 { height: 90px; } .h100 { height: 100px; } .h110 { height: 110px; } .h120 { height: 120px; }
+.h130 { height: 130px; } .h140 { height: 140px; } .h150 { height: 150px; } .h160 { height: 160px; } 
+.h170 { height: 170px; } .h180 { height: 180px; } .h190 { height: 190px; } .h200 { height: 200px; }
+
+.w10pcent { width: 10%; } .w20pcent { width: 20%; } .w30pcent { width: 30%; }
+.w40pcent { width: 40%; } .w50pcent { width: 50%; } .w60pcent { width: 60%; }
+.w70pcent { width: 70%; } .w80pcent { width: 80%; } .w90pcent { width: 90%; } .w100pcent { width: 100%; }
+
+.w10 { width: 10px; } .w20 { width: 20px; } .w30 { width: 30px; } .w40 { width: 40px; } 
+.w50 { width: 50px; } .w60 { width: 60px; } .h70 { width: 70px; } .w80 { width: 80px; } 
+.w90 { width: 90px; } .w100 { width: 100px; } .w110 { width: 110px; } .w120 { width: 120px; }
+.w130 { width: 130px; } .w140 { width: 140px; } .w150 { width: 150px; } .w160 { width: 160px; } 
+.w170 { width: 170px; } .w180 { width: 180px; } .w190 { width: 190px; } .w200 { width: 200px; }
