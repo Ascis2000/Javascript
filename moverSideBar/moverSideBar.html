@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra Lateral Deslizante</title>
+
+    <style>
+        .sidebar {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            width: 200px;
+            min-width: 10px;
+            max-width: 550px;
+            background-color: #333;
+            padding: 15px;
+            overflow: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .separador {
+            width: 5px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            position: absolute;
+            background-color: #74745e;
+            cursor: ew-resize;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.75; /* Transparencia del 15% */
+            background-color: rgb(238, 177, 10);
+            /* background: transparent; */
+            z-index: 999;
+            user-select: none;
+
+            p{
+                top:100px; 
+                left: 300px; 
+                font-size:25px;
+                position:relative; 
+            }
+        }
+    
+    </style>
+
+</head>
+
+<body>
+
+<div style="margin-bottom: 20px; ">
+    Creamos una barra lateral deslizante que contempla aquellos casos en los que pueda existir un iframe.<br/>
+    Cada vez que movamos el cursor, existirá una capa transparente que recogerá el evento onmouseup, en el caso 
+    que soltemos el botón dentro del iframe
+</div>
+
+<div class="sidebar">
+    <div class="separador"></div>
+</div>
+<div class="overlay" id="overlay">
+    <p style="">¡Moviendo la barra lateral!</p>
+</div>
+
+<iframe scr="#" style="width:90%; height:50%; margin-top: 20px; border:1px solid red;"></iframe>
+
+<pre>
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.75; /* Transparencia del 15% */
+    background-color: rgb(238, 177, 10);
+    /* background: transparent; */
+    z-index: 999;
+    user-select: none;
+
+    p{
+        top:100px; 
+        left: 300px; 
+        font-size:25px;
+        position:relative; 
+    }
+}
+</pre>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sidebar = document.querySelector('.sidebar');
+    const separador = document.querySelector('.separador');
+    const overlay = document.getElementById('overlay');
+    
+    let isDragging = false;
+    let startX;
+    let startWidth;
+
+    const onMouseMove = (e) => {
+        if (!isDragging) return;
+        const newWidth = startWidth + (e.clientX - startX);
+        sidebar.style.width = `${newWidth}px`;
+    };
+
+    const onMouseUp = () => {
+        if (isDragging) {
+            isDragging = false;
+            document.documentElement.style.cursor = '';
+            overlay.style.display = 'none';
+        }
+    };
+
+    separador.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        startWidth = parseInt(document.defaultView.getComputedStyle(sidebar).width, 10);
+        document.documentElement.style.cursor = 'ew-resize';
+        overlay.style.display = 'block';
+    });
+
+    document.addEventListener('mousemove', onMouseMove);
+    document.addEventListener('mouseup', onMouseUp);
+    document.addEventListener('mouseleave', onMouseUp);
+});
+
+</script>
+
+</body>
+</html>
